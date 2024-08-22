@@ -91,7 +91,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   docs:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/next'
+    if: github.ref == 'refs/heads/beta'
     needs: [ release ]
     env:
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
