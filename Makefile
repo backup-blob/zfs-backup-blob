@@ -14,7 +14,9 @@ lint:
 	@make -C docs lint
 
 license-check:
-	@go-licenses report ./... --ignore github.com/backup-blob/zfs-backup-blob,golang.org/x/sys/unix
+	@go-licenses check ./... \
+		--ignore $$(go list std | awk 'NR > 1 { printf(",") } { printf("%s",$$0) } END { print "" }'),github.com/backup-blob/zfs-backup-blob,golang.org/x/sys/unix,golang.org/x/sys/cpu
+     	--allowed_licenses="MIT,ISC,Apache-2.0,BSD-3-Clause,BSD-2-Clause"
 
 format:
 	@go fmt ./...
