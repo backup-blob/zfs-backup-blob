@@ -1,0 +1,18 @@
+stages:
+  storage:
+    type: s3
+    bucket: test-bucket
+    baseEndpoint: <path>
+    usePathStyle: true
+  throttle2:
+    type: throttle
+    writeSpeed: 50048576
+    readSpeed: 50048576
+    remote: storage
+  crypt2:
+    type: crypt
+    password: "hello"
+    remote: throttle2
+  zfs:
+    type: zfs
+    remote: crypt2

@@ -1,0 +1,142 @@
+linters-settings:
+  whitespace:
+    multi-if: true
+    multi-func: true
+  errcheck:
+    check-type-assertions: true
+  goconst:
+    min-len: 2
+    min-occurrences: 3
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - experimental
+      - opinionated
+      - performance
+      - style
+  govet:
+    enable-all: true
+    disable:
+      - fieldalignment
+  nolintlint:
+    require-explanation: true
+    require-specific: true
+  varnamelen:
+    min-name-length: 2
+    max-distance: 12
+  unparam:
+    check-exported: true
+  depguard:
+    rules:
+      cmd:
+        list-mode: strict
+        files:
+          - "**/cmd/**/*.go"
+          - "**/cmd/*.go"
+        allow:
+          - $all
+          - $gostd
+          - "github.com/spf13/cobra"
+          - "github.com/backup-blob/zfs-backup-blob/internal/driver"
+          - "github.com/backup-blob/zfs-backup-blob/internal/repository"
+          - "github.com/backup-blob/zfs-backup-blob/internal/usecase"
+          - "github.com/backup-blob/zfs-backup-blob/internal/domain"
+          - "github.com/backup-blob/zfs-backup-blob/cmd/command"
+          - "github.com/backup-blob/zfs-backup-blob/pkg/format"
+          - "github.com/golobby/container/v3"
+      repo:
+        list-mode: strict
+        files:
+          - "**/internal/repository/**/*.go"
+          - "**/internal/repository/*.go"
+        allow:
+          - $gostd
+          - "github.com/backup-blob/zfs-backup-blob/internal/domain"
+          - "github.com/backup-blob/zfs-backup-blob/internal/driver"
+      usecase:
+        list-mode: strict
+        files:
+          - "**/internal/usecase/**/*.go"
+          - "**/internal/usecase/*.go"
+        allow:
+          - $gostd
+          - "github.com/backup-blob/zfs-backup-blob/internal/domain"
+          - "github.com/backup-blob/zfs-backup-blob/internal/repository"
+      driver:
+        list-mode: strict
+        files:
+          - "**/internal/driver/**/*.go"
+          - "**/internal/driver/*.go"
+        allow:
+          - $gostd
+          - "github.com/go-playground/validator/v10"
+          - "github.com/backup-blob/zfs-backup-blob/internal/domain"
+          - "github.com/backup-blob/zfs-backup-blob/pkg"
+          - "github.com/aws/aws-sdk-go-v2"
+          - "github.com/rs/zerolog"
+          - "github.com/jedib0t/go-pretty/v6/table"
+        deny:
+          - pkg: "github.com/backup-blob/zfs-backup-blob/internal/repository"
+            desc: not allowed
+          - pkg: "github.com/backup-blob/zfs-backup-blob/internal/usecase"
+            desc: not allowed
+      pkg:
+        list-mode: strict
+        files:
+          - "**/pkg/**/*.go"
+          - "**/pkg/*.go"
+        allow:
+          - $all
+          - $gostd
+          - "github.com/fujiwara/shapeio"
+          - "github.com/docker/go-units"
+        deny:
+          - pkg: "github.com/backup-blob/zfs-backup-blob/internal"
+            desc: not allowed
+
+linters:
+  disable-all: true
+  enable:
+    - wsl
+    - govet
+    - whitespace
+    - varnamelen
+    - unparam
+    - unconvert
+    - testpackage
+    - tenv
+    - nolintlint
+    - nestif
+    - nilerr
+    - maintidx
+    - gosec
+    - mnd
+    - goconst
+    - gocritic
+    - godot
+    - bodyclose
+    - containedctx
+    - depguard
+    - dupl
+    - durationcheck
+    - errname
+    - forcetypeassert
+    - cyclop
+run:
+  issues-exit-code: 1
+  tests: false
+
+issues:
+  max-same-issues: 0
+  exclude-files:
+    - ".*_test.go$"
+    - "pkg/fakemiddleware/fakemiddleware.go$"
+  exclude-dirs:
+    - "docs"
+  exclude-rules:
+    - linters:
+        - mnd
+      text: "Magic number: 2, in <condition> detected"
+
+output:
+  show-stats: true

@@ -1,0 +1,124 @@
+---
+title: Examples
+description: Examples of how to use zfs-backup-blob.
+---
+
+## Setting up your configuration file
+
+Before you are able to use any of the cli commands, you need to set up your configuration file in `.bbackup.yaml` in your home directory.
+
+A basic version would be:
+
+```yaml
+stages:
+  s3:
+    type: s3
+    bucket: <bucket>
+    region: <region>
+    accessKey: <accessKey>
+    accessSecret: <accessSecret>
+  zfs:
+    type: zfs
+    remote: s3
+```
+
+if you need throttling or encryption you can add this with [stages](/configuration/stages/)
+
+further documentation about the [config file](/configuration/config-file/).
+
+## Adding a volume to a backup group
+
+Given you have a `pool/volume` and you want to add them to a backup group `my-group`. If you dont need more then one group you can omit the `--group` flag and the volume is assigned to the default group.
+
+```bash
+zfs-backup-blob group add-volume --volume pool/volume --group my-group
+```
+
+further documentation about [add volume](/cli/zfs-backup-blob_group_add-volume/).
+
+## List volumes which belong to backup groups
+
+Given you want to find out which zfs volumes you are making backups of.
+
+```bash
+zfs-backup-blob group list-volumes
+```
+
+this yields something like:
+
+```bash
++------------------------------+---------+
+| VOLUME                       | GROUP   |
++------------------------------+---------+
+| pool/volume                  | default |
++------------------------------+---------+
+```
+
+further documentation about [list volumes](/cli/zfs-backup-blob_group_list-volumes/).
+
+## Creating snapshots
+
+Given you want to create backups of your zfs volumes in a backup group.
+
+Then the first step is to create zfs snapshots and tag them with the type (full or incremental).
+
+:::note
+Zfs snapshots are not created atomically across volumes. The snapshots stay local until you decide to push them to the blob storage with the sync command.
+:::
+
+Given you have two volumes in a backup group `my-group` and you want to create a full snapshot of them. The following command would create two zfs snapshots.
+
+```bash
+zfs-backup-blob group snapshot --group my-group --type full
+```
+
+further documentation about [snapshots](/cli/zfs-backup-blob_group_snapshot/).
+
+## Uploading snapshots to the blob storage
+
+Given you have a backup group `my-group` and you want to push the snapshots to the blob storage.
+
+:::note
+This command will take all accumulated snapshots since the last sync and upload them to the blob storage.
+It's up to you if you execute this command right after the snapshots command or if you delay it to a later point in time.
+:::
+
+```bash
+zfs-backup-blob group sync --group my-group
+```
+
+further documentation about [syncing](/cli/zfs-backup-blob_group_sync/).
+
+## Viewing backups of a volume
+
+Given you want to find out how many backups are stored on the blob storage for a volume.
+
+```bash
+zfs-backup-blob backup list --volume pool/volume
+```
+
+will yield something like:
+
+```bash
++------------------------------------+------+-------+
+| KEY                                | TYPE | SIZE  |
++------------------------------------+------+-------+
+| pool/volume                        | full | 111MB |
++------------------------------------+------+-------+
+```
+
+the `key` can be used to restore the particular backup.
+
+further documentation about [volume backups](/cli/zfs-backup-blob_backup_list/).
+
+## Restoring a Backup
+
+Given you have a `pool/volume` and a `backup_blob_2024-08-11T00-10-01Z` was created and uploaded to the blob storage.
+
+If you restore it with the command below, it will create a new volume `pool/restored-volume` with the content of the backup.
+
+```bash
+zfs-backup-blob backup restore --blob-key pool/volume/backup_blob_2024-08-11T00-10-01Z --target pool/restored-volume
+```
+
+further documentation about [backup restore](/cli/zfs-backup-blob_backup_restore/).

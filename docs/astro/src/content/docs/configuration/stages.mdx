@@ -1,0 +1,69 @@
+---
+title: Stages
+description: Get started building your docs site with Starlight.
+---
+import {Code} from '@astrojs/starlight/components';
+
+Stages are away to define the flow from the source (**zfs**) to the sink (**s3**) while allowing to specify middlewares in a pipeline like styles.
+
+Stages are defined in the [config file](/configuration/config-file/).
+
+The type field corresponds to the type of stage and must be set for every stage.
+
+## S3 Stage
+
+import s3 from '../../yaml/s3-stage.yaml?raw';
+
+<Code code={s3} lang="yaml"/>
+
+| field          | description                                                                                                                                                     | required |
+|----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| bucket         | The bucket to upload the blobs to                                                                                                                               | yes      |
+| accessKey      | The access key for the s3 bucket                                                                                                                                | yes      |
+| accessSecret   | The secret key for the s3 bucket                                                                                                                                | yes      |
+| region         | The region of the s3 bucket                                                                                                                                     | yes      |
+| baseEndpoint   | The s3 api endpoint (set if you are using a s3 compatible api like backblaze)                                                                                   | no       |
+| usePathStyle   | Set this to true if your compatible api needs path style urls                                                                                                   | no       |
+| prefix         | The folder in the s3 bucket to upload the blobs to                                                                                                              | no       |
+| maxRetries     | The maximum amount of retries to perform for requests to the s3 api.                                                                                            | no       |
+| uploadPartSize | The size of the parts to upload to s3 in bytes. Its recommended to increase this depending on your bandwidth (the higher the bandwidth the higher the partSize) | no       |
+
+:::note
+It's recommended to configure the s3 stage explicitly with the config. Configuration of the s3 sdk via environment variables is only an escape hatch.
+:::
+
+
+## Zfs Stage
+
+import zfs from '../../yaml/zfs-stage.yaml?raw';
+
+<Code code={zfs} lang="yaml"/>
+
+| field   | description                                                          | required |
+|---------|----------------------------------------------------------------------|----------|
+| remote  | The next stage to execute                                            | yes      |
+| zfsPath | The path to the zfs executeable (if not set zfs must be in the PATH) | no       |
+
+## Throttle Stage
+
+import throttle from '../../yaml/throttle-stage.yaml?raw';
+
+<Code code={throttle} lang="yaml"/>
+
+| field      | description                                                                              | required |
+|------------|------------------------------------------------------------------------------------------|----------|
+| remote     | The next stage to execute                                                                | yes      |
+| writeSpeed | The max write speed when uploading a backup to the sink (**s3**), not setting = no limit | yes      |
+| readSpeed  | The max read speed when restoring a backup from sink (**s3**), not setting = no limit    | yes      |
+
+## Crypt Stage
+
+import crypt from '../../yaml/crypt-stage.yaml?raw';
+
+<Code code={crypt} lang="yaml"/>
+
+| field    | description                                             | required |
+|----------|---------------------------------------------------------|----------|
+| remote   | The next stage to execute                               | yes      |
+| password | The password to encrypt the backups with **aes256 gcm** | yes      |
+

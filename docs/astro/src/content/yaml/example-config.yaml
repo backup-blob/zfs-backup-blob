@@ -1,0 +1,8 @@
+remote_trim_policy: IFIFIF
+local_trim_policy: FFFF
+stages:
+  sink:
+    type: s3
+  source:
+    type: zfs
+    remote: sink

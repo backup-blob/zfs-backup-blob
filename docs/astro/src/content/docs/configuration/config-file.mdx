@@ -1,0 +1,24 @@
+---
+title: Config-File
+description: Get started building your docs site with Starlight.
+tableOfContents: false
+---
+
+
+
+import {Code} from '@astrojs/starlight/components';
+import importedCode from '../../yaml/example-config.yaml?raw';
+
+The following config includes all possible fields.
+
+It defines [trim policies](/configuration/trim-policies/) for remote backups and local snapshots.
+
+It contains two stages: the source (**zfs**) and the sink (**s3**). The required fields for stages can be found on the [stages page](/configuration/stages/).
+
+<Code code={importedCode} lang="yaml" title=".bbackup.yaml"/>
+
+| field              | description                                                                                              | required field            |
+|--------------------|----------------------------------------------------------------------------------------------------------|---------------------------|
+| remote_trim_policy | Contains the trim policy which is executed on the blob storage. Its deletings blobs on the blob storage. | yes (if trimming is used) |
+| local_trim_policy  | Contains the trim policy which is executed locally. Is deleting snapshot locally.                        | yes (if trimming is used) |
+| stages             | Contains the sink, source and the transformation stages                                                  | yes                       |

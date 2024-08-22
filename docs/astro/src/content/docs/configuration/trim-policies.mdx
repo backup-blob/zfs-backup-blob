@@ -1,0 +1,55 @@
+---
+title: Trim Policies
+description: Trim policies are used to delete old backups and local snapshots.
+---
+
+Trim policies are used to delete old backups and local snapshots. They help to save disk space remote and locally.
+
+:::note
+A trim policy is a string of characters. Each character represents a backup type.
+
+`F` for full backups/snapshots
+
+`I` for incremental backups/snapshots
+:::
+
+:::note
+The policy applies FIFO (first in first out) to the backups/snapshots. Older snapshots/backups are deleted first.
+:::
+
+:::note
+The arrangement of the characters does not matter. Example: `FIFIF` is the same as `IIIFFF`.
+:::
+
+## Remote Trim Policy
+
+The remote trim policy deletes backups on the blob storage to free up space.
+
+It can be configured via the `remote_trim_policy` field in the [config file](/configuration/config-file/).
+
+#### Example Policy:
+
+```yaml
+remote_trim_policy: IFIFIF
+```
+
+**Translates to:** Always keep the last 3 full backups and the last 3 incremental backups.
+
+#### How to execute a remote trim policy
+
+Run the [trim-remote command](/cli/zfs-backup-blob_group_trim-remote/) to execute a remote trim policy for a group.
+
+
+## Local Trim Policy
+
+The local trim policy deletes snapshots locally to free up space.
+
+It can be configured via the `local_trim_policy` field in the [config file](/configuration/config-file/).
+
+#### Example Policy:
+
+```yaml
+local_trim_policy: FFFF
+```
+
+**Translates to:** Always keep the last 4 full backups/snapshots.

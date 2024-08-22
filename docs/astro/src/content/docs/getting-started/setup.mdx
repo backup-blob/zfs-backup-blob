@@ -1,0 +1,51 @@
+---
+title: Quick Start
+description: How to set up zfs-backup-blob for a basic backup.
+---
+
+This example shows how to back up a ZFS volume to S3.
+
+:::note
+This example assumes you have a ZFS pool named `zfs-pool` and a volume named `volume1`.
+:::
+
+
+
+1. Create a `.bbackup.yaml` in your home directory.
+
+```yaml
+stages:
+  s3:
+    type: s3
+    bucket: <bucket>
+    region: <region>
+    accessKey: <accessKey>
+    accessSecret: <accessSecret>
+  zfs:
+    type: zfs
+    remote: s3
+```
+
+2. Add a volume to a backup group.
+
+```bash
+zfs-backup-blob group add-volume --volume zfs-pool/volume1
+```
+
+3. Create full snapshot of volumes belonging to the backup group.
+
+```bash
+zfs-backup-blob group snapshot --type full
+```
+
+4. Sync snapshots to remote storage (s3 in this case).
+
+```bash
+zfs-backup-blob group sync
+```
+
+5. Verify snapshots are backed up in remote blob storage.
+
+```bash
+zfs-backup-blob backup list --volume zfs-pool/volume1
+```

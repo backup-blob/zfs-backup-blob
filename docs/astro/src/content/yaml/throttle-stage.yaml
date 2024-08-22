@@ -1,0 +1,4 @@
+type: throttle
+remote: next_stage
+writeSpeed: 1048576 # in bytes per second
+readSpeed: 1048576  # in bytes per second

@@ -1,0 +1,24 @@
+{
+  "name": "astro-starlight",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.8.2",
+    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/starlight": "^0.25.1",
+    "astro": "^4.12.2",
+    "sharp": "^0.33.4",
+    "starlight-links-validator": "^0.9.1",
+    "typescript": "^5.5.3"
+  },
+  "devDependencies": {
+    "@rollup/plugin-yaml": "^4.1.2"
+  }
+}

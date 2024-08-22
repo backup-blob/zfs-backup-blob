@@ -1,0 +1,9 @@
+remote_trim_policy: "FIIFFF"
+stages:
+  storage:
+    type: s3
+    bucket: bucket-name
+  crypt2:
+    type: crypt
+    password: hellodd
+    remote: hello

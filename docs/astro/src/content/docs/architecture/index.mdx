@@ -1,0 +1,51 @@
+---
+title: Architecture
+description: Architecture of zfs-backup-blob.
+---
+
+## General
+
+Under the hood `zfs-backup-blob` CLI is making use of the `zfs` CLI and the S3 SDK to interact with the ZFS and the blob storage.
+
+## Snapshot / Blob folder organisation
+
+Backups on the storage account are organized in folders, the folder structure is determined by the folder structure of ZFS.
+
+As you can see below a ZFS volume named `zfs-pool/volume1` is backed up to a blob storage named `s3-bucket`. Since in the configuration a `prefix` was specified the folder path is prefixed with the `prefix` in the bucket.
+
+Snapshot have a static naming scheme: `backup_blob_<date_of_creation>`.
+
+Additional a statefile `.backupstate.yaml` is stored alongside the backups on the blob storage. This keeps track state related to the backups.
+
+import { Image } from 'astro:assets';
+import data from '../../../assets/data-arch.png';
+import snap from '../../../assets/snap-arch.png';
+import sync from '../../../assets/sync-arch.png';
+
+<Image src={data} alt="Data architecture" />
+
+## Snapshot relationships
+
+ZFS Backup Blob offers two types of snapshots. Full and incremental.
+
+**Incremental backups** only stores the difference between the previous snapshot and the current one. The previous snapshot is determined  by the time lexical order of the snapshot names.
+
+**Full backups** stores the whole volume.
+
+<Image src={snap} alt="Snap architecture" />
+
+## Sync reconciliation
+
+When creating snapshots locally of a volume with zfs backup blob you want them to be synced to the blob storage.
+
+Creating snapshots with the [snapshot command](/cli/zfs-backup-blob_group_snapshot/) marks those snapshots automatically reconciliation the next time the [sync command](/cli/zfs-backup-blob_group_sync/) is executed.
+
+Snapshot created by you manually with the `zfs snapshot` command will not be reconciled / synced to the blob storage. This is by design to not interfere with your manual snapshots / other tools you use.
+
+Below we have locally 4 snapshots and `snap4` is the latest and therefor the `HEAD`.
+
+On the blob storage we have 2 snapshots of which `snap2` is and therefor the `HEAD`.
+
+The sync command will take `snap3` and `snap4` and upload them to the blob storage since they are the difference of both `HEADs`.
+
+<Image src={sync} alt="Snap architecture" />

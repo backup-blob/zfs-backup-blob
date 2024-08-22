@@ -1,0 +1,48 @@
+---
+title: Intro
+description: Get started building your docs site with Starlight.
+tableOfContents: false
+---
+
+## About
+
+ZFS Backup Blob is a tool for backing up ZFS filesystems to blob storages.
+It tries to be simple to use and limited in the use-cases it supports.
+
+ZFS Backup Blob was created since running a zfs backup server adds a lot of complexity. Adding a bucket in a s3 compatible blob storage is just a click.
+
+:::caution
+This project is in an early stage of development and might be subject to breaking changes.
+:::
+
+
+import {Card, CardGrid} from '@astrojs/starlight/components';
+
+
+## Features
+
+<CardGrid>
+    <Card title="Storage" icon="seti:folder">
+        Support for **S3 compatible** object storages.
+    </Card>
+    <Card title="Throttling" icon="seti:argdown">
+        Optional throttling for upload/download to object storage.
+    </Card>
+    <Card title="Encryption" icon="seti:license">
+        Optional encryption with **aes256 gcm**.
+    </Card>
+    <Card title="Backup Strategy" icon="seti:css">
+        Support for **full** and **incremental** backups.
+    </Card>
+    <Card title="Trimming" icon="">
+        Trimming of Backups and Zfs Snapshots.
+    </Card>
+</CardGrid>
+
+### Non-goals
+
+* **Cron jobs**: Scheduling of backups is not part of this project.
+
+## License
+
+Currently, this project is unlicensed. A sustainable way of keeping this project alive is being looked for.

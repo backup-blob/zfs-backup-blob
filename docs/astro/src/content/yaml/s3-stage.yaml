@@ -1,0 +1,10 @@
+type: s3
+bucket: foo-bucket
+baseEndpoint: https://s3.eu-central-003.backblazeb2.com
+usePathStyle: true
+accessKey: foo-key
+accessSecret: foo-secret
+region: us-east-1
+prefix: deep/nested/folder
+maxRetries: 15
+uploadPartSize: 62914560 # in bytes
