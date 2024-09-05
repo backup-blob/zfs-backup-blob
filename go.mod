@@ -6,7 +6,7 @@ require (
 	github.com/aws/aws-sdk-go-v2 v1.30.5
 	github.com/aws/aws-sdk-go-v2/config v1.27.33
 	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.17.17
-	github.com/aws/aws-sdk-go-v2/service/s3 v1.61.1
+	github.com/aws/aws-sdk-go-v2/service/s3 v1.61.2
 	github.com/cucumber/godog v0.14.1
 	github.com/docker/go-units v0.5.0
 	github.com/fujiwara/shapeio v1.0.0
