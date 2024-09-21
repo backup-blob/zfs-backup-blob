@@ -48,6 +48,8 @@ export default defineConfig({
                 },
                 {label: 'FAQ', link: '/faq/'},
                 {label: 'Feedback', link: '/feedback/'},
+                {label: 'Privacy Policy', link: '/privacy-policy/'},
+                {label: 'Imprint', link: '/imprint/'},
             ],
         }),
     ],
