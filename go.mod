@@ -5,7 +5,7 @@ go 1.22.6
 require (
 	github.com/aws/aws-sdk-go-v2 v1.31.0
 	github.com/aws/aws-sdk-go-v2/config v1.27.39
-	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.17.25
+	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.17.26
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.64.0
 	github.com/cucumber/godog v0.14.1
 	github.com/docker/go-units v0.5.0
