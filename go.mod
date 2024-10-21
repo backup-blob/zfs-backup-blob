@@ -12,7 +12,7 @@ require (
 	github.com/fujiwara/shapeio v1.0.0
 	github.com/go-playground/validator/v10 v10.22.1
 	github.com/golobby/container/v3 v3.3.2
-	github.com/jedib0t/go-pretty/v6 v6.6.0
+	github.com/jedib0t/go-pretty/v6 v6.6.1
 	github.com/rs/zerolog v1.33.0
 	github.com/smartystreets/goconvey v1.8.1
 	github.com/spf13/cobra v1.8.1
