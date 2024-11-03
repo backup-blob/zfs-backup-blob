@@ -7,7 +7,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/config v1.28.1
 	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.17.35
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.66.2
-	github.com/cucumber/godog v0.14.1
+	github.com/cucumber/godog v0.15.0
 	github.com/docker/go-units v0.5.0
 	github.com/fujiwara/shapeio v1.0.0
 	github.com/go-playground/validator/v10 v10.22.1
