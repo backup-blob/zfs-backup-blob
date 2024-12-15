@@ -13,7 +13,7 @@
     "@astrojs/check": "^0.9.3",
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/starlight": "^0.28.2",
-    "astro": "^4.12.2",
+    "astro": "^4.16.17",
     "sharp": "^0.33.4",
     "starlight-links-validator": "^0.12.0",
     "typescript": "^5.5.3"
