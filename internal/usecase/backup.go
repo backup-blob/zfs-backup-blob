@@ -23,7 +23,7 @@ func NewBackup(
 	logger domain.LogRepository,
 	configRepo config.ConfigRepo,
 ) domain.BackupUsecase {
-	return &backup{ //nolint:whitespace // no need
+	return &backup{
 		backupRepo: backupRepo,
 		stateRepo:  stateRepo,
 		logger:     logger,

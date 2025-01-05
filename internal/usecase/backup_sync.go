@@ -22,8 +22,8 @@ func NewBackupSync(
 	stateRepo domain.BackupStateRepo,
 	naming domain.SnapshotNamestrategy,
 	volumeRepo domain.VolumeRepository,
-) domain.BackupSyncUsecase { //
-	return &backupSync{ //nolint:whitespace // no need
+) domain.BackupSyncUsecase {
+	return &backupSync{
 		backupUsecase:  backupUsecase,
 		snapshotRepo:   snapshotRepo,
 		stateRepo:      stateRepo,

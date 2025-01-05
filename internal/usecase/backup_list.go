@@ -20,7 +20,7 @@ func NewBackupList(
 	namingStrategy domain.SnapshotNamestrategy,
 	renderRepo domain.RenderRepository,
 ) domain.BackupListUsecase {
-	return &backupList{ //nolint:whitespace // no need
+	return &backupList{
 		stateRepo:      stateRepo,
 		namingStrategy: namingStrategy,
 		renderRepo:     renderRepo,

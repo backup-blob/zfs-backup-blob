@@ -25,7 +25,7 @@ func NewTrimUseCase(
 	backupRepo domain.BackupRepository,
 	snapshotRepo domain.SnapshotRepository,
 ) domain.TrimUsecase {
-	return &trimUsecase{ //nolint:whitespace // no need
+	return &trimUsecase{
 		logger,
 		volumeRepo,
 		stateRepo,

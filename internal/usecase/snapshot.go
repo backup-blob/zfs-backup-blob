@@ -16,7 +16,7 @@ func NewSnapshot(
 	volumeRepo domain.VolumeRepository,
 	logger domain.LogRepository,
 ) domain.SnapshotUsecase {
-	return &snapshot{ //nolint:whitespace // no need
+	return &snapshot{
 		snapRepo:   snapRepo,
 		volumeRepo: volumeRepo,
 		logger:     logger,
