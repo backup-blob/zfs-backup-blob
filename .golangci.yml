@@ -1,7 +1,7 @@
 linters-settings:
   whitespace:
     multi-if: true
-    multi-func: true
+    multi-func: false
   errcheck:
     check-type-assertions: true
   goconst:
