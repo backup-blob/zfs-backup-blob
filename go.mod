@@ -16,7 +16,7 @@ require (
 	github.com/rs/zerolog v1.33.0
 	github.com/smartystreets/goconvey v1.8.1
 	github.com/spf13/cobra v1.8.1
-	github.com/testcontainers/testcontainers-go/modules/minio v0.34.0
+	github.com/testcontainers/testcontainers-go/modules/minio v0.35.0
 	go.uber.org/mock v0.5.0
 	gopkg.in/yaml.v3 v3.0.1
 )
@@ -93,7 +93,7 @@ require (
 	github.com/smarty/assertions v1.16.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/stretchr/testify v1.10.0 // indirect
-	github.com/testcontainers/testcontainers-go v0.34.0 // indirect
+	github.com/testcontainers/testcontainers-go v0.35.0 // indirect
 	github.com/tklauser/go-sysconf v0.3.14 // indirect
 	github.com/tklauser/numcpus v0.9.0 // indirect
 	github.com/yusufpapurcu/wmi v1.2.4 // indirect
