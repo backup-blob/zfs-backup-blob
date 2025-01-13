@@ -10,7 +10,7 @@ require (
 	github.com/cucumber/godog v0.15.0
 	github.com/docker/go-units v0.5.0
 	github.com/fujiwara/shapeio v1.0.0
-	github.com/go-playground/validator/v10 v10.23.0
+	github.com/go-playground/validator/v10 v10.24.0
 	github.com/golobby/container/v3 v3.3.2
 	github.com/jedib0t/go-pretty/v6 v6.6.5
 	github.com/rs/zerolog v1.33.0
@@ -104,8 +104,8 @@ require (
 	go.opentelemetry.io/otel/metric v1.33.0 // indirect
 	go.opentelemetry.io/otel/sdk v1.21.0 // indirect
 	go.opentelemetry.io/otel/trace v1.33.0 // indirect
-	golang.org/x/crypto v0.31.0 // indirect
-	golang.org/x/net v0.33.0 // indirect
+	golang.org/x/crypto v0.32.0 // indirect
+	golang.org/x/net v0.34.0 // indirect
 	golang.org/x/sys v0.29.0 // indirect
 	golang.org/x/text v0.21.0 // indirect
 	golang.org/x/time v0.9.0 // indirect
