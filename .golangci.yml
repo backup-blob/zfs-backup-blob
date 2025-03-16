@@ -51,6 +51,7 @@ linters-settings:
           - "**/internal/repository/*.go"
         allow:
           - $gostd
+          - "gopkg.in/yaml.v3"
           - "github.com/backup-blob/zfs-backup-blob/internal/domain"
           - "github.com/backup-blob/zfs-backup-blob/internal/driver"
       usecase:
@@ -69,6 +70,7 @@ linters-settings:
           - "**/internal/driver/*.go"
         allow:
           - $gostd
+          - "gopkg.in/yaml.v3"
           - "github.com/go-playground/validator/v10"
           - "github.com/backup-blob/zfs-backup-blob/internal/domain"
           - "github.com/backup-blob/zfs-backup-blob/pkg"
