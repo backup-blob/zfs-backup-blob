@@ -13,7 +13,7 @@ require (
 	github.com/go-playground/validator/v10 v10.25.0
 	github.com/golobby/container/v3 v3.3.2
 	github.com/jedib0t/go-pretty/v6 v6.6.7
-	github.com/rs/zerolog v1.33.0
+	github.com/rs/zerolog v1.34.0
 	github.com/smartystreets/goconvey v1.8.1
 	github.com/spf13/cobra v1.9.1
 	github.com/testcontainers/testcontainers-go/modules/minio v0.35.0
