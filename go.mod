@@ -11,7 +11,7 @@ require (
 	github.com/cucumber/godog v0.15.0
 	github.com/docker/go-units v0.5.0
 	github.com/fujiwara/shapeio v1.0.0
-	github.com/go-playground/validator/v10 v10.25.0
+	github.com/go-playground/validator/v10 v10.26.0
 	github.com/golobby/container/v3 v3.3.2
 	github.com/jedib0t/go-pretty/v6 v6.6.7
 	github.com/rs/zerolog v1.34.0
