@@ -17,7 +17,7 @@ require (
 	github.com/smartystreets/goconvey v1.8.1
 	github.com/spf13/cobra v1.9.1
 	github.com/testcontainers/testcontainers-go/modules/minio v0.38.0
-	go.uber.org/mock v0.5.2
+	go.uber.org/mock v0.6.0
 	gopkg.in/yaml.v3 v3.0.1
 )
 
