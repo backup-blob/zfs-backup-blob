@@ -15,7 +15,7 @@ require (
 	github.com/jedib0t/go-pretty/v6 v6.6.8
 	github.com/rs/zerolog v1.34.0
 	github.com/smartystreets/goconvey v1.8.1
-	github.com/spf13/cobra v1.9.1
+	github.com/spf13/cobra v1.10.1
 	github.com/testcontainers/testcontainers-go/modules/minio v0.38.0
 	go.uber.org/mock v0.6.0
 	gopkg.in/yaml.v3 v3.0.1
@@ -94,7 +94,7 @@ require (
 	github.com/shirou/gopsutil/v4 v4.25.5 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/smarty/assertions v1.16.0 // indirect
-	github.com/spf13/pflag v1.0.7 // indirect
+	github.com/spf13/pflag v1.0.9 // indirect
 	github.com/stretchr/testify v1.10.0 // indirect
 	github.com/testcontainers/testcontainers-go v0.38.0 // indirect
 	github.com/tklauser/go-sysconf v0.3.14 // indirect
