@@ -20,7 +20,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: asdf-vm/actions/install@v4
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v6
         with:
           go-version: '>=1.22.6'
       - uses: golangci/golangci-lint-action@v8
@@ -34,7 +34,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: asdf-vm/actions/install@v4
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v6
         with:
           go-version: '>=1.22.6'
       - run: make test
@@ -52,7 +52,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: asdf-vm/actions/install@v4
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v6
         with:
           go-version: '>=1.22.6'
       - run: sudo make test-acceptance
@@ -69,7 +69,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: asdf-vm/actions/install@v4
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v6
         with:
           go-version: '>=1.22.6'
       - uses: cycjimmy/semantic-release-action@v4
