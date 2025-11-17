@@ -72,7 +72,7 @@ jobs:
       - uses: actions/setup-go@v6
         with:
           go-version: '>=1.22.6'
-      - uses: cycjimmy/semantic-release-action@v5
+      - uses: cycjimmy/semantic-release-action@v6
         id: semantic
         with:
           extra_plugins: |
