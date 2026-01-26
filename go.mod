@@ -15,7 +15,7 @@ require (
 	github.com/jedib0t/go-pretty/v6 v6.7.1
 	github.com/rs/zerolog v1.34.0
 	github.com/smartystreets/goconvey v1.8.1
-	github.com/spf13/cobra v1.10.1
+	github.com/spf13/cobra v1.10.2
 	github.com/testcontainers/testcontainers-go/modules/minio v0.40.0
 	go.uber.org/mock v0.6.0
 	gopkg.in/yaml.v3 v3.0.1
