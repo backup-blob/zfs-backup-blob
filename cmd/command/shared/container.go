@@ -85,10 +85,11 @@ func LoadDeps(configPath, logLevel string) container.Container {
 		return driver.NewConfigDriver(&config.LoadParams{
 			ConfigReader: configReader,
 			StageMapping: map[string]func() config.ConfigStage{
-				"s3":       config.NewS3Config,
-				"crypt":    config.NewCryptConfig,
-				"zfs":      config.NewZfsConfig,
-				"throttle": config.NewThrottleConfig,
+				"s3":        config.NewS3Config,
+				"crypt":     config.NewCryptConfig,
+				"compress":  config.NewCompressConfig,
+				"zfs":       config.NewZfsConfig,
+				"throttle":  config.NewThrottleConfig,
 			},
 			StorageDriverFunc: func(s *config.S3Config) (domain.StorageDriver, error) {
 				return driver.NewS3StorageFromConfig(s, logger)
@@ -102,6 +103,8 @@ func LoadDeps(configPath, logLevel string) container.Container {
 					return driver.NewThrottle(v)
 				case *config.CryptConfig:
 					return driver.NewCrypt(v)
+				case *config.CompressConfig:
+					return driver.NewCompress(v)
 				default:
 					return nil
 				}

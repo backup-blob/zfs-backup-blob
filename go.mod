@@ -13,6 +13,7 @@ require (
 	github.com/go-playground/validator/v10 v10.30.1
 	github.com/golobby/container/v3 v3.3.2
 	github.com/jedib0t/go-pretty/v6 v6.7.8
+	github.com/klauspost/compress v1.18.4
 	github.com/rs/zerolog v1.34.0
 	github.com/smartystreets/goconvey v1.8.1
 	github.com/spf13/cobra v1.10.2
@@ -72,7 +73,6 @@ require (
 	github.com/hashicorp/golang-lru v1.0.2 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jtolds/gls v4.20.0+incompatible // indirect
-	github.com/klauspost/compress v1.18.0 // indirect
 	github.com/leodido/go-urn v1.4.0 // indirect
 	github.com/lufia/plan9stats v0.0.0-20240909124753-873cd0166683 // indirect
 	github.com/magiconair/properties v1.8.10 // indirect
