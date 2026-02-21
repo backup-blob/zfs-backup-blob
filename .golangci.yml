@@ -62,6 +62,7 @@ linters:
             - github.com/aws/aws-sdk-go-v2
             - github.com/rs/zerolog
             - github.com/jedib0t/go-pretty/v6/table
+            - github.com/klauspost/compress
           deny:
             - pkg: github.com/backup-blob/zfs-backup-blob/internal/repository
               desc: not allowed
