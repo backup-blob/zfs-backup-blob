@@ -201,10 +201,10 @@ func TestCompressDriver_RoundTrip(t *testing.T) {
 				}
 			}
 			
-			decompressedData := output.Bytes()
-			if !bytes.Equal(decompressedData, tc.data) {
+			result := output.Bytes()
+			if !bytes.Equal(result, tc.data) {
 				t.Errorf("decompressed data doesn't match original (len=%d vs len=%d)",
-					len(decompressedData), len(tc.data))
+					len(result), len(tc.data))
 			}
 		})
 	}
