@@ -3,7 +3,7 @@ package config
 type CryptConfig struct {
 	t        string `yaml:"type" validate:"required"`
 	Remote_  string `yaml:"remote" validate:"required"`
-	Password string `yaml:"password" validate:"required"`
+	Password string `yaml:"password" validate:"required"` //nolint:gosec // configuration field for encryption password
 }
 
 func NewCryptConfig() ConfigStage {

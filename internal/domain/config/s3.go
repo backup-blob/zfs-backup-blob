@@ -7,8 +7,8 @@ type S3Config struct {
 	UsePathStyle   bool   `yaml:"usePathStyle"`
 	BaseEndpoint   string `yaml:"baseEndpoint"`
 	Prefix         string `yaml:"prefix"`
-	AccessKey      string `yaml:"accessKey"`
-	AccessSecret   string `yaml:"accessSecret"`
+	AccessKey      string `yaml:"accessKey"` //nolint:gosec // AWS credential configuration field
+	AccessSecret   string `yaml:"accessSecret"` //nolint:gosec // AWS credential configuration field
 	MaxRetries     int    `yaml:"maxRetries"`
 	UploadPartSize int    `yaml:"uploadPartSize"`
 }

@@ -10,6 +10,7 @@ import (
 )
 
 // speed thresholds for compression levels.
+// These map user-friendly levels to zstd encoder speeds.
 const (
 	fastestThreshold = 2
 	defaultThreshold = 5
