@@ -1,6 +1,6 @@
 module github.com/backup-blob/zfs-backup-blob
 
-go 1.24.1
+go 1.25.0
 
 require (
 	github.com/aws/aws-sdk-go-v2 v1.41.1
@@ -9,7 +9,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.95.1
 	github.com/cucumber/godog v0.15.1
 	github.com/docker/go-units v0.5.0
-	github.com/fujiwara/shapeio v1.0.0
+	github.com/fujiwara/shapeio v1.1.0
 	github.com/go-playground/validator/v10 v10.30.1
 	github.com/golobby/container/v3 v3.3.2
 	github.com/jedib0t/go-pretty/v6 v6.7.1
@@ -109,5 +109,5 @@ require (
 	golang.org/x/crypto v0.46.0 // indirect
 	golang.org/x/sys v0.39.0 // indirect
 	golang.org/x/text v0.32.0 // indirect
-	golang.org/x/time v0.11.0 // indirect
+	golang.org/x/time v0.15.0 // indirect
 )
